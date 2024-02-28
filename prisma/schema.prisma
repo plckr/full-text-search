@@ -20,4 +20,9 @@ model Product {
   scraped_at  DateTime
   terms       String
   section     String
+
+  searchField String @default(dbgenerated()) @map("search_field")
+
+  @@index([searchField])
+  @@map("products")
 }
