@@ -1,0 +1,23 @@
+generator client {
+  provider        = "prisma-client-js"
+  previewFeatures = ["postgresqlExtensions", "fullTextSearch"]
+}
+
+datasource db {
+  provider   = "postgresql"
+  url        = env("DATABASE_URL")
+  extensions = [pgcrypto]
+}
+
+model Product {
+  brand       String
+  url         String
+  sku         String   @id
+  name        String
+  description String
+  price       Decimal?
+  currency    String
+  scraped_at  DateTime
+  terms       String
+  section     String
+}
