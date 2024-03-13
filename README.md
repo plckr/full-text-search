@@ -1,38 +1,54 @@
-# create-svelte
+# Full-Text Search Proof of Concept with SvelteKit, Prisma, and PostgreSQL
 
-Everything you need to build a Svelte project, powered by [`create-svelte`](https://github.com/sveltejs/kit/tree/main/packages/create-svelte).
+This project demonstrates the implementation of full-text search in a PostgreSQL database, leveraging SvelteKit as the frontend framework and Prisma for database management.
 
-## Creating a project
+It's designed to showcase how full-text search can be effectively utilized within a web application.
 
-If you're seeing this, you've probably already done this step. Congrats!
+## Requirements
 
-```bash
-# create a new project in the current directory
-npm create svelte@latest
+- Node.js
+- npm
+- PostgreSQL database
 
-# create a new project in my-app
-npm create svelte@latest my-app
+## Setup
+
+Before running the project, ensure you have a PostgreSQL database accessible. The connection details should be specified in a `.env` file at the root of the project directory.
+
+### .env Configuration
+
+Create a `.env` file in the root directory and fill in your PostgreSQL database connection details:
+
+```plaintext
+DATABASE_URL="postgresql://admin:admin@localhost:55434/fts?schema=public"
 ```
 
-## Developing
+Above url is the url generated from the `docker-compose.yml` file.
 
-Once you've created a project and installed dependencies with `npm install` (or `pnpm install` or `yarn`), start a development server:
+Feel free to change if you need to.
 
-```bash
+## Project Installation
+
+Run database with docker-compose
+
+```
+docker-compose up -d
+```
+
+Install dependencies:
+
+```
+npm install
+```
+
+## Running the project
+
+To run the project in development mode:
+
+```
 npm run dev
-
-# or start the server and open the app in a new browser tab
-npm run dev -- --open
 ```
 
-## Building
+## Credits
 
-To create a production version of your app:
-
-```bash
-npm run build
-```
-
-You can preview the production build with `npm run preview`.
-
-> To deploy your app, you may need to install an [adapter](https://kit.svelte.dev/docs/adapters) for your target environment.
+- [How to implement Full Text Search in Prisma with PostgreSQL?
+  ](https://www.claritician.com/how-to-implement-full-text-search-in-prisma-with-postgresql)
