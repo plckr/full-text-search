@@ -40,6 +40,12 @@ Install dependencies:
 npm install
 ```
 
+Update database schema
+
+```
+npm run prisma:deploy
+```
+
 ## Running the project
 
 To run the project in development mode:

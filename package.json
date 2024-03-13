@@ -11,7 +11,8 @@
     "lint": "prettier --check . && eslint .",
     "format": "prettier --write .",
     "prisma:seed": "npx prisma db seed",
-    "prisma:studio": "npx prisma studio"
+    "prisma:studio": "npx prisma studio",
+    "prisma:deploy": "npx prisma migrate deploy"
   },
   "devDependencies": {
     "@sveltejs/adapter-auto": "^3.0.0",
