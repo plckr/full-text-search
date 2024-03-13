@@ -37,5 +37,9 @@ export const load: PageServerLoad = async ({ url }) => {
     prisma.$queryRaw<[{ count: bigint }]>`SELECT COUNT(*) FROM "public"."products";`
   ]);
 
-  return { products: serialize(products), count: Number(count) };
+  return {
+    products: serialize(products),
+    perPage: take,
+    count: Number(count)
+  };
 };
