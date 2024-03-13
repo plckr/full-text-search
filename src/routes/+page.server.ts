@@ -4,7 +4,8 @@ import { serialize } from '$lib/utils/prisma';
 import type { PageServerLoad } from './$types';
 
 export const load: PageServerLoad = async ({ url }) => {
-  const search = url.searchParams.get('search') || '';
+  // Remove spaces and convert it to AND (&). See: https://www.postgresql.org/docs/current/textsearch-controls.html
+  const search = (url.searchParams.get('search') || '').replace(' ', ' & ');
   const page = Number(url.searchParams.get('page') || 1);
 
   const take = 18;
