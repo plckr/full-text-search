@@ -35,7 +35,12 @@ export const load: PageServerLoad = async ({ url }) => {
       LIMIT ${take}
       OFFSET ${skip}
   `,
-    prisma.$queryRaw<[{ count: bigint }]>`SELECT COUNT(*) FROM "public"."products";`
+    prisma.$queryRaw<[{ count: bigint }]>`
+      SELECT COUNT(*) 
+      FROM "public"."products"
+      WHERE 
+        ${search} = ''
+        OR to_tsvector(concat_ws(' ', "public"."products"."search_field")) @@ to_tsquery('english', ${search});`
   ]);
 
   return {
